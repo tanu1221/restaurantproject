@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <h2>Payment Details</h2>
+    <form id="payment-form">
+        <label for="payment-type">Payment Type:</label>
+        <select id="payment-type" name="payment-type" required>
+            <option value="">Select Payment Type</option>
+            <option value="credit">Credit Card</option>
+            <option value="cash">Cash</option>
+            <option value="debit">Debit Card</option>
+        </select>
+        <button type="button" onclick="completePayment()">Make Payment</button>
+    </form>
+
+    <script>
+        function completePayment() {
+            // Perform payment processing here
+
+            // Show alert for payment done
+            alert("Data Recieved!!");
+        }
+    </script>
+</body>
+</html>

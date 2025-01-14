@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Shopping Cart</h2>
+    <div id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+    <div id="total">
+        <h3>Total Amount:</h3>
+        <p id="total-amount">$0.00</p>
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        // Load cart items from localStorage and calculate total amount
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let totalAmount = 0;
+        cart.forEach(item => {
+            totalAmount += item.price;
+            addToCart(item.name, item.price, false);
+        });
+        document.getElementById('total-amount').textContent = "$" + totalAmount.toFixed(2);
+
+        // Function to dynamically add items to the cart
+        function addToCart(itemName, price, updateTotal = true) {
+            var cartItems = document.getElementById("cart-items");
+            var item = document.createElement("div");
+            item.innerHTML = "<p>" + itemName + " - $" + price.toFixed(2) + "</p>";
+            cartItems.appendChild(item);
+            // Update total amount if needed
+            if (updateTotal) {
+                totalAmount += price;
+                document.getElementById('total-amount').textContent = "$" + totalAmount.toFixed(2);
+            }
+        }
+
+        // Function to proceed to payment page
+        function proceedToPayment() {
+            window.location.href = "payment.html";
+        }
+    </script>
+</body>
+</html>
+

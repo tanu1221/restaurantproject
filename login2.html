@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="reportdish.css">
+</head>
+<body>
+    <h2>Menu</h2>
+    <div class="menu-items">
+        <div class="menu-item" id="item1">
+            <h3>Burger</h3>
+            <p>Price: 100</p>
+            <button onclick="addToCart('Burger', 10)">Add to Cart</button>
+        </div>
+        <div class="menu-item" id="item1">
+            <h3>Pizza</h3>
+            <p>Price: 320</p>
+            <button onclick="addToCart('Pizza', 10)">Add to Cart</button>
+        </div>
+        <div class="menu-item" id="item1">
+            <h3>Salad</h3>
+            <p>Price:120</p>
+            <button onclick="addToCart('Salad ', 10)">Add to Cart</button><br>
+        </div>
+        <div class="menu-item" id="item2">
+            <h3>Pasta</h3>
+            <p>Price:145</p>
+            <button onclick="addToCart('Pasta', 12)">Add to Cart</button>
+        </div>
+        <!-- Add more food items here -->
+    </div>
+    <a href="cart1.html"><button>View Cart</button></a>
+    <script>
+        function addToCart(itemName, price) {
+            // Create or get the cart array from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Add the item to the cart
+            cart.push({name: itemName, price: price});
+            // Save the cart array back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    </script>
+</body>
+</html>

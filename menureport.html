@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="menu-items">
+        <div class="menu-item" id="item1">
+            <h3>Burger</h3>
+            <p>Price: $10</p>
+            <button onclick="addToCart('Item 1', 10)">Add to Cart</button>
+      
+            <h3>Pizza</h3>
+            <p>Price: $12</p>
+            <button onclick="addToCart('Item 2', 12)">Add to Cart</button>
+        <!-- Add more food items here -->
+    
+        <h3>pasta</h3>
+        <p>Price: $15</p>
+        <button onclick="addToCart('Item 2', 12)">Add to Cart</button>
+    
+        <h3>Salad</h3>
+        <p>Price: $19</p>
+        <button onclick="addToCart('Item 2', 12)">Add to Cart</button><br><br>
+    </div>
+    <a href="cart.html"><button>View Cart</button></a>
+    <script>
+        function addToCart(itemName, price) {
+            // Create or get the cart array from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Add the item to the cart
+            cart.push({name: itemName, price: price});
+            // Save the cart array back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    </script>
+</body>
+</html>
